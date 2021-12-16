@@ -1,11 +1,5 @@
 version: '3'
 
 services:
-    selenium:
-        image: selenium/standalone-chrome:4.1.0-20211209
-        ports:
-        - 4444:4444
     scrapper:
         build: .
-        depends_on:
-        - selenium
