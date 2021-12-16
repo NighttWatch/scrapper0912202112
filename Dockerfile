@@ -28,22 +28,17 @@ RUN mkdir -p /opt/selenium \
     && cd /opt/selenium; unzip /opt/selenium/chromedriver_linux64.zip; rm -rf chromedriver_linux64.zip; ln -fs /opt/selenium/chromedriver /usr/local/bin/chromedriver;
 
 # python
-RUN apt-get update && apt-get install -y \
+RUN sudo apt-get update && sudo apt-get install -y \
     python \
     python-setuptools \
-    python-pip
-
-RUN apt-get update \
-apt-get install software-properties-common \
-add-apt-repository ppa:deadsnakes/ppa \
-# Install py39 from deadsnakes repository
-apt-get install python3-8 \
-# Install pip from standard ubuntu packages
-apt-get install python3-pip \
-
-
-
-
+    python-pip \
+    software-properties-common \
+    add-apt-repository \
+    ppa:deadsnakes/ppa \
+    # Install py39 from deadsnakes repository
+    apt-get install python3-8 \
+    # Install pip from standard ubuntu packages
+    apt-get install python3-pip \
 
 
 #Run requrements to user field (/root/.local)
