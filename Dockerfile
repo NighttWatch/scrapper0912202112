@@ -28,10 +28,13 @@ RUN mkdir -p /opt/selenium \
     && cd /opt/selenium; unzip /opt/selenium/chromedriver_linux64.zip; rm -rf chromedriver_linux64.zip; ln -fs /opt/selenium/chromedriver /usr/local/bin/chromedriver;
 
 # python
-RUN apt-get update
-RUN apt-get install python3 -y
-RUN apt-get install python3-pip -y
-RUN apt-get install vim -y
+RUN apt-get update && apt-get install -y \
+        software-properties-common
+    RUN add-apt-repository ppa:deadsnakes/ppa
+    RUN apt-get update && apt-get install -y \
+        python3.7 \
+        python3-pip
+    RUN python3.7 -m pip install pip
 
 
 #Run requrements to user field (/root/.local)
