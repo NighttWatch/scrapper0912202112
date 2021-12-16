@@ -1,6 +1,8 @@
 # Base Image - First Stage
 FROM python:3.9
 
+RUN sudo snap install chromium
+
 WORKDIR /scrapper
 
 COPY requirements.txt requirements.txt
