@@ -1,4 +1,6 @@
-import undetected_chromedriver.v2 as uc
+from selenium import webdriver
+from selenium.webdriver.chrome import options
+import undetected_chromedriver.v2 as uc,webbrowser
 import undetected_chromedriver as uc
 from selenium.common.exceptions import TimeoutException, WebDriverException
 from selenium.webdriver.chrome.options import Options
@@ -214,7 +216,7 @@ class Request:
         table_cell_format = excel.add_format()
         table_cell_format.set_bold()
         table_cell_format.set_bg_color('#C2EDDA')
-        browser = uc.Chrome(options=chrome_options)
+        browser = uc.Chrome(executable_path="http://127.0.0.1:4444/wd/hub",options=chrome_options)
         browser.get("https://pcpartpicker.com/products/cpu")
         browser.set_window_size(1920, 1080)
         sleep(10)
