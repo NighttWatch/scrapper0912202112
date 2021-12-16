@@ -41,4 +41,4 @@ RUN apt-get update && apt-get install -y \
 RUN pip3 install -r requirements.txt
 
 #run
-CMD [ "python","-u" ,"./scrapper.py" ]
+CMD [ "python3","./scrapper.py" ]
