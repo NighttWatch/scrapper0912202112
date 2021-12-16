@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:18.04
 MAINTAINER Qxf2 Services
 
 COPY . /app
@@ -29,12 +29,16 @@ RUN mkdir -p /opt/selenium \
 
 # python
 RUN apt-get update && apt-get install -y \
-    software-properties-common \
-    add-apt-repository ppa:deadsnakes/ppa \
-    # Install py39 from deadsnakes repository
-    apt-get install python3-8 \
-    # Install pip from standard ubuntu packages
-    apt-get install python3-pip \
+        software-properties-common
+    RUN add-apt-repository ppa:deadsnakes/ppa
+    RUN apt-get update && apt-get install -y \
+        python3.7 \
+        python3-pip
+    RUN python3.7 -m pip install pip
+    RUN apt-get update && apt-get install -y \
+        python3-distutils \
+        python3-setuptools
+    RUN python3.7 -m pip install pip --upgrade pip
 
 
 #Run requrements to user field (/root/.local)
