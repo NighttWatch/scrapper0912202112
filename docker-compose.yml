@@ -1,9 +1,10 @@
 version: '3'
 
-scrapper:
-    build: .
-    ports:
-        - 4000:4000
-    volumes:
-        - ./data/:/data/
-    privileged: true
+services:
+    scrapper:
+        build: .
+        ports:
+            - 4000:4000
+        volumes:
+            - ./data/:/data/
+        privileged: true
