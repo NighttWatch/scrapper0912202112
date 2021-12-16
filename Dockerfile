@@ -29,12 +29,8 @@ RUN mkdir -p /opt/selenium \
 
 # python
 RUN apt-get update && apt-get install -y \
-    python \
-    python-setuptools \
-    python-pip \
     software-properties-common \
-    add-apt-repository \
-    ppa:deadsnakes/ppa \
+    add-apt-repository ppa:deadsnakes/ppa \
     # Install py39 from deadsnakes repository
     apt-get install python3-8 \
     # Install pip from standard ubuntu packages
