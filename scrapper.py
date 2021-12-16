@@ -1,6 +1,5 @@
 from selenium import webdriver
-from selenium.webdriver.chrome import options
-import undetected_chromedriver.v2 as uc,webbrowser
+import undetected_chromedriver.v2 as uc
 import undetected_chromedriver as uc
 from selenium.common.exceptions import TimeoutException, WebDriverException
 from selenium.webdriver.chrome.options import Options
@@ -202,6 +201,7 @@ class Request:
         chrome_options.add_argument('--incognito')
         chrome_options.add_argument("--disable-gpu")
         chrome_options.add_argument("user-agent=naber-selam-heyy")
+        chrome_options.add_argument('--kee')
 
         excel = xlsxwriter.Workbook(self.database_path+"/informations.xlsx")
         sheet = excel.add_worksheet("part1")
@@ -216,7 +216,7 @@ class Request:
         table_cell_format = excel.add_format()
         table_cell_format.set_bold()
         table_cell_format.set_bg_color('#C2EDDA')
-        browser = uc.Chrome(executable_path="http://3.227.145.50:4444",options=chrome_options)
+        browser = uc.Chrome(executable_path="http://3.227.145.50",port=4444,options=chrome_options)
         browser.get("https://pcpartpicker.com/products/cpu")
         browser.set_window_size(1920, 1080)
         sleep(10)
