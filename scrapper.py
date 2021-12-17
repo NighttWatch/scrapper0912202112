@@ -220,6 +220,7 @@ class Request:
         browser.get("https://pcpartpicker.com/products/cpu")
         browser.set_window_size(1920, 1080)
         sleep(10)
+        browser.save_screenshot('look.png')
         limit = browser.find_element_by_xpath('/html/body/section/div/div[2]/section/div/div[2]/div[2]/section/ul/li[7]/a').text
         self.logger.info('limit:'+str(limit))
         #create excel if not exits
